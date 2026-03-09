@@ -1,0 +1,25 @@
+<h2>Welcome {{session['user']}}</h2>
+<a href="/add">Add Record</a> |
+<a href="/logout">Logout</a>
+<hr>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Action</th>
+</tr>
+
+{% for record in records %}
+<tr>
+    <td>{{record.id}}</td>
+    <td>{{record.title}}</td>
+    <td>{{record.description}}</td>
+    <td>
+        <a href="/edit/{{record.id}}">Edit</a> |
+        <a href="/delete/{{record.id}}">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
